@@ -1,0 +1,588 @@
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+ 
+EVEN 
+Group Expense Intelligence 
+Product Requirements Document  ·  v1.0  ·  2026 
+ 
+Product Name 
+EVEN 
+Version 
+v1.0 — Seed / MVP 
+Document Owner 
+Mann (Founder, Brand & Product) 
+Company 
+Status 
+Draft — Active Development 
+Date 
+April 2026 
+Confidentiality 
+Internal Only — Do Not Distribute 
+ 
+ 
+ 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+1. Executive Summary 
+Pact is a privacy-first, local-first group expense tracker and bill splitter built for tight-knit friend 
+groups, roommates, and travel companions. Unlike incumbents such as Splitwise, Pact 
+operates entirely on-device with zero mandatory account creation — making it structurally 
+impossible for user financial data to be monetized or leaked. 
+ 
+The product is designed to scale from a personal-use utility into a defensible consumer startup 
+by embedding AI-powered intelligence, visual debt graph analysis, and a group financial health 
+score — features no funded competitor can adopt without dismantling their core data 
+monetization model. 
+ 
+ 
+Strategic Insight 
+Minimalist's acquisition by HUL in 2025 proved that radical transparency creates lasting consumer 
+trust in otherwise opaque industries. Pact applies the same philosophy to personal finance 
+between friends: full transparency, zero surveillance, community-first architecture. 
+ 
+2. Problem Statement 
+2.1 The User Problem 
+Splitting expenses with friends is universally painful. Current tools either: 
+• Require all participants to create accounts, creating friction and drop-off 
+• Store sensitive financial data on remote servers, creating privacy risk 
+• Lack intelligent suggestions — forcing manual categorization and split math 
+• Provide no visual understanding of group financial dynamics 
+• Offer no recurring expense tracking, leading to forgotten obligations 
+ 
+2.2 The Market Gap 
+Splitwise dominates mindshare but is a 2011-era product built on a 2011-era privacy model. The 
+landscape since then has changed: 
+ 
+Factor 
+Splitwise 
+Pact 
+Privacy Model 
+Cloud-first, data on servers 
+Local-first, data on device 
+Account Required 
+Yes — all users 
+Yes – all users 
+AI Intelligence 
+None 
+Smart split + receipt AI 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Factor 
+Splitwise 
+Pact 
+Debt Visualization 
+Simple list 
+Interactive network graph 
+Group Health Score 
+None 
+Built-in financial wellness score 
+Recurring Expenses 
+Basic 
+Full scheduling + reminders 
+Data Monetization Risk 
+High 
+None (no server storage) 
+Receipt Scanning 
+Paid feature 
+Free, AI-powered 
+ 
+3. Product Vision & Positioning 
+3.1 Vision Statement 
+ 
+ 
+Product Vision 
+Pact is the expense layer for people who trust each other — not corporations. Built local-first, 
+designed for real friendships, and powered by AI that helps, not harvests. 
+ 
+3.2 Positioning 
+• Primary: Category: 
+◦ Group expense tracker + bill splitter 
+• Secondary: Privacy-first fintech for consumer social finance 
+• Primary: Target Audience: 
+◦ 18–28 year old friend groups, college students, roommates, travel groups 
+◦ Privacy-conscious users in India and global Gen-Z markets 
+• Core Moat: Differentiator: 
+◦ Local-first architecture makes privacy the structural default, not a marketing claim 
+◦ No competitor can adopt this without rebuilding their entire data infrastructure 
+ 
+3.3 Competitive Moat Summary 
+Moat Type 
+Description 
+Reversibility for 
+Competitors 
+Architectural 
+Local-first, no cloud storage by default 
+Near-impossible — requires 
+full rebuild 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Moat Type 
+Description 
+Reversibility for 
+Competitors 
+AI Features 
+Smart split suggestions + receipt scanning 
+Replicable but takes 12–18 
+months 
+Visual Intelligence 
+Debt network graph + settlement optimizer 
+Medium difficulty 
+Community Trust 
+Will require account to verify users 
+Cannot be faked once data 
+trust is broken 
+Group Health Score 
+Novel metric — no competitor has this 
+Easy to copy, hard to own 
+retroactively 
+ 
+4. Feature Specification 
+4.1 Core Features (MVP — v1.0) 
+4.1.1 Group & Expense Management 
+The foundational split-bill and expense tracking layer — feature-parity with Splitwise plus 
+improvements. 
+ 
+• Create named groups with optional emoji/avatar (no sign-up required) 
+• Add members by name only — no email, phone, or account needed 
+• Add expenses: amount, description, payer, split type, date, category 
+• Split modes: Equal, Exact Amount, Percentage, Shares-based 
+• Edit and delete expenses with full history log 
+• Settle debts — mark payments, log UPI/cash/bank references 
+• Multi-currency support with manual exchange rate input 
+• Export group ledger as CSV or PDF 
+ 
+4.1.2 Local-First Privacy Architecture 
+Pact's defining architectural moat. No data leaves the device unless the user explicitly initiates 
+an export. 
+ 
+• All data stored in browser localStorage / IndexedDB 
+• No user accounts, no sign-in, no email collection 
+• Optional encrypted JSON export for backup (user-controlled) 
+• Optional QR-code-based group sync for inviting friends (P2P, no server) 
+• Clear data button with explicit user confirmation 
+ 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+ 
+Privacy Promise (Core Brand Commitment) 
+Pact will never store user financial data on external servers without explicit opt-in. This is not a 
+policy — it is a technical constraint baked into the architecture. There is no server to breach. 
+ 
+4.1.3 Debt Graph Visualization 
+The most visually differentiating feature of Pact. An interactive network graph showing who 
+owes whom, with smart settlement path optimization. 
+ 
+• Interactive force-directed graph of group members as nodes 
+• Edges represent debts — thickness = magnitude, color = direction 
+• Smart settlement optimizer: suggests minimum transactions to clear all debts 
+• Example: A owes B ₹200, B owes C ₹200 → Pact suggests A pays C directly 
+• Tap a node to see that member's full debt breakdown 
+• Animate settlement when debts are marked as paid 
+ 
+4.1.4 AI-Powered Smart Split Suggestions 
+On-device AI (via Gemini Flash API) that reads context and suggests fair splits. 
+ 
+• Analyze expense description to suggest category automatically 
+• Suggest relevant group members to include based on past patterns 
+• Detect unequal split scenarios (e.g., dietary restrictions, non-attendees) 
+• Natural language expense entry: 'Dinner at Tatva, 6 people, ₹3200' → auto-fills form 
+• AI chat: limited queries per day (privacy-safe, no conversation stored) 
+ 
+4.1.5 Receipt Scanning 
+Upload or capture a receipt photo — AI extracts line items, total, and suggests splits. 
+ 
+• Camera capture or image upload 
+• OCR + AI extraction of: merchant, total, line items, date 
+• Line-item level splitting: assign different items to different people 
+• Works offline for camera capture; AI processing uses Gemini Flash API (free tier) 
+• Receipt image stored locally, never uploaded without user action 
+ 
+4.1.6 Recurring Expense Tracking 
+Track shared subscriptions, rent, utilities, and other recurring costs. 
+ 
+• Create recurring expenses: weekly, monthly, custom interval 
+• Auto-generate expense entry on due date with local notification 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+• Template system: save a split configuration and reuse it 
+• Dashboard widget showing upcoming recurring obligations 
+• History view: all past instances of a recurring expense 
+ 
+4.1.7 Friend Group Financial Health Score 
+A novel, proprietary metric unique to Pact. Computed entirely on-device from group expense 
+patterns. 
+ 
+• Score: 0–100, displayed as a ring gauge with trend indicator 
+• Factors: settlement velocity, balance symmetry, expense frequency, reciprocity ratio 
+• Breakdown: explains what is dragging the score down 
+• Historical trend: 30/60/90 day score graph 
+• Insights: 'Your group settles within 3 days on average — top 15%' 
+ 
+ 
+Why This Matters 
+No expense tracker has ever gamified financial health at a group level. This feature creates 
+emotional stickiness — users will check their score the way they check their credit score. It is also 
+uniquely defensible because the scoring model is proprietary. 
+ 
+4.2 Secondary Features 
+• Dark mode (default) + light mode toggle 
+• Personal expense tracker (non-group, private journal of spending) 
+• Expense categories with custom emoji + color 
+• Spending analytics: charts by category, member, time 
+• Activity feed: chronological log of all group actions 
+• Search and filter expenses by date, amount, category, member 
+ 
+4.3 Feature Roadmap 
+ 
+Phase 
+Timeline 
+Features 
+v1.0 — MVP 
+Month 1–2 
+Group management, expense splitting, debt graph, local 
+storage, basic UI 
+v1.1 — AI Layer 
+Month 3 
+Smart split suggestions, receipt scanning, natural language 
+input 
+v1.2 — 
+Intelligence 
+Month 4 
+Health score, recurring expenses, analytics dashboard 
+v1.3 — Sync 
+Month 5 
+P2P QR sync, encrypted backup/restore, iOS PWA 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Phase 
+Timeline 
+Features 
+v2.0 — Scale 
+Month 6+ 
+Optional cloud sync (opt-in), web app PWA, community 
+features 
+ 
+5. Recommended Tech Stack 
+5.1 Philosophy 
+The stack is chosen for three non-negotiable constraints: (1) zero-budget to start, (2) maximum 
+development velocity for a duo vibe-coder, (3) architectural alignment with privacy-first 
+principles. Every choice must be justifiable on all three axes. 
+ 
+5.2 Frontend 
+Layer 
+Technology 
+Reason 
+Framework 
+Next.js 14 (App 
+Router) 
+File-based routing, fast, great DX, free on Vercel 
+Language 
+TypeScript 
+Catches bugs at build time, essential for complex 
+state 
+Styling 
+Tailwind CSS 
+Fastest way to build clean UI, zero CSS files 
+UI Components 
+shadcn/ui 
+Unstyled, composable, Linear/Notion aesthetic out 
+of box 
+Animations 
+Framer Motion 
+Debt graph animations, page transitions, micro-
+interactions 
+Icons 
+Lucide React 
+Clean, consistent, matches Linear aesthetic 
+Fonts 
+Geist (Vercel) 
+Modern, minimal, startup-grade — perfect for Pact's 
+brand 
+State 
+Management 
+Zustand 
+Minimal, fast, no boilerplate — better than Redux for 
+this scale 
+Charts 
+Recharts 
+Clean charts for analytics, health score visualization 
+Graph Viz 
+D3.js 
+Debt network graph — force-directed, fully 
+customizable 
+Forms 
+React Hook Form + 
+Zod 
+Fast validation, minimal re-renders 
+ 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+5.3 Storage (Local-First) 
+Layer 
+Technology 
+Reason 
+Primary DB 
+Dexie.js (IndexedDB 
+wrapper) 
+Structured local DB, async, works offline, fast 
+queries 
+State Persistence 
+Zustand + persist 
+middleware 
+Syncs Zustand state to localStorage 
+seamlessly 
+Backup Format 
+Encrypted JSON (AES-256) 
+User-controlled backup via Web Crypto API — 
+no server needed 
+Sync (P2P) 
+QR code + manual JSON 
+import 
+Zero-server group invite — just scan and merge 
+ 
+5.4 AI & Backend 
+Layer 
+Technology 
+Reason 
+AI API 
+Google Gemini Flash 2.0 
+Free tier (generous), fast, multimodal for receipt 
+scanning 
+AI Gateway 
+Next.js API Routes 
+Serverless — no dedicated backend, zero cost 
+on Vercel 
+Receipt OCR 
+Gemini Vision (multimodal) 
+Single API does image understanding + text 
+extraction 
+NLP Input 
+Gemini Flash text 
+Natural language → structured expense JSON 
+Rate Limiting 
+Upstash Redis (free tier) 
+Prevent AI API abuse, enforce daily chat limits 
+Auth (optional) 
+None in v1 / Clerk in v2 
+No auth needed for local-first; Clerk if cloud 
+sync added 
+ 
+5.5 Infrastructure & Deployment 
+Layer 
+Technology 
+Reason 
+Hosting 
+Vercel (Hobby — Free) 
+Zero cost, edge deployment, Next.js native, 
+instant deploys 
+Domain 
+Pact.app or getpact.in 
+Short, brandable, memorable 
+Analytics 
+Vercel Analytics (free) 
+Privacy-respecting, no cookies, GDPR-safe 
+Error Tracking 
+Sentry (free tier) 
+Catch bugs in production without user data 
+exposure 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Layer 
+Technology 
+Reason 
+CI/CD 
+GitHub Actions + Vercel 
+auto-deploy 
+Push to main → auto-deploy, zero config 
+Repo 
+GitHub (private) 
+Standard, free, integrates with everything 
+ 
+5.6 Development Tooling 
+Tool 
+Purpose 
+Cursor IDE 
+AI-assisted vibe coding — primary development environment 
+ESLint + Prettier 
+Code quality and formatting 
+Husky + lint-staged 
+Pre-commit hooks to enforce quality 
+pnpm 
+Faster than npm, better disk efficiency 
+Storybook (optional) 
+Component development and documentation 
+ 
+5.7 Full Stack Summary 
+ 
+ 
+The Stack in One Line 
+Next.js 14 + TypeScript + Tailwind + shadcn/ui + Zustand + Dexie.js + Gemini Flash API + Vercel. 
+Estimated monthly cost at launch: ₹0. 
+ 
+6. UX & Design System 
+6.1 Design Principles 
+• Clarity over cleverness — every screen has one primary action 
+• Data density is a feature, not a bug — power users should see more 
+• Motion with purpose — animations communicate state, not decoration 
+• Privacy signals everywhere — reinforce the local-first message in UI copy 
+ 
+6.2 Design System 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Token 
+Value 
+Usage 
+Primary 
+#0F172A (Slate 900) 
+Brand color, headings, high-emphasis text 
+Accent 
+#6366F1 (Indigo 500) 
+CTAs, active states, links, health score 
+Success 
+#10B981 (Emerald 500) 
+Settled debts, positive indicators 
+Warning 
+#F59E0B (Amber 500) 
+Overdue, reminders 
+Destructive 
+#EF4444 (Red 500) 
+Delete actions, debt indicators 
+Surface 
+#F8FAFC (Slate 50) 
+Card backgrounds, inputs 
+Border 
+#E2E8F0 (Slate 200) 
+Dividers, card borders 
+Font 
+Geist Sans + Geist Mono 
+All UI text + numbers/amounts 
+ 
+6.3 Key Screens 
+• Dashboard — Group health score ring, quick-add FAB, recent activity, upcoming recurring 
+• Group View — Member list with balances, debt graph toggle, add expense CTA 
+• Debt Graph — Full-screen force graph, settlement optimizer panel, node detail drawer 
+• Add Expense — Smart form with AI suggestions, receipt upload zone, split configurator 
+• Analytics — Category donut, member bar chart, 30/60/90 day trends 
+• Settings — Export data, clear data, currency, theme, AI chat quota 
+ 
+7. Success Metrics 
+7.1 North Star Metric 
+Weekly Active Groups — the number of distinct groups that add at least one expense per week. 
+This is the truest signal of Pact being embedded in real social behavior. 
+ 
+7.2 v1.0 Launch Targets (90 days post-launch) 
+Metric 
+Target 
+Measurement Method 
+Total installs (PWA) 
+500+ 
+Vercel Analytics 
+Weekly Active Groups 
+100+ 
+Local analytics ping (privacy-safe) 
+Avg expenses per group 
+8+ 
+Indicates real usage, not just trial 
+Receipt scans 
+200+ 
+Gemini API call logs 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+Metric 
+Target 
+Measurement Method 
+D7 retention 
+>40% 
+Return visit to app within 7 days 
+Health Score viewed 
+>60% of active 
+users 
+Click event on score component 
+Organic referrals 
+30%+ of new 
+installs 
+UTM tracking on share links 
+ 
+8. Risks & Mitigations 
+Risk 
+Likelihood 
+Impact 
+Mitigation 
+Data loss (no cloud 
+backup) 
+Medium 
+High 
+Prominent backup reminder, auto-export 
+prompt 
+Gemini API costs at 
+scale 
+Low (free tier 
+generous) 
+Medium 
+Rate limit per user, upgrade to paid if 
+needed 
+P2P sync complexity 
+High 
+Medium 
+Ship QR import in v1.1, not v1.0 
+Low group adoption 
+(network effect) 
+Medium 
+High 
+Solo personal tracker mode to acquire 
+users pre-group 
+Competitor copying 
+health score 
+Medium 
+Low 
+Own the brand narrative early — be first, 
+be vocal 
+iOS PWA limitations 
+Medium 
+Medium 
+Test thoroughly, document known 
+limitations 
+ 
+9. Appendix 
+9.1 Glossary 
+• Local-first: Architecture where data is stored on the user's device as the primary source of 
+truth 
+• Debt graph: Network visualization of financial obligations between group members 
+• Settlement optimizer: Algorithm that reduces N debts to minimum required transactions 
+• Health score: Proprietary 0–100 metric measuring a group's financial relationship quality 
+• PWA: Progressive Web App — installable web app with offline support 
+ 
+
+PACT — Product Requirements Document     CONFIDENTIAL 
+Pact — Group Expense Intelligence  |  v1.0  |  2026     Page 
+9.2 References 
+• Splitwise — splitwise.com (primary competitive reference) 
+• Linear — linear.app (design aesthetic reference) 
+• Notion — notion.so (UX simplicity reference) 
+• Minimalist → HUL acquisition (transparency brand benchmark) 
+• Google Gemini Flash API — ai.google.dev 
+• Dexie.js — dexie.org (local IndexedDB reference) 
+ 
+9.3 Document History 
+Version 
+Date 
+Author 
+Changes 
+v1.0 
+April 2026 
+Mann 
+Initial PRD — MVP scope, tech stack, full feature 
+spec 
+ 
+PACT — Built for friends who trust each other. 
+
